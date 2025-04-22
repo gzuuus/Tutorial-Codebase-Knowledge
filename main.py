@@ -14,7 +14,7 @@ DEFAULT_INCLUDE_PATTERNS = {
 }
 
 DEFAULT_EXCLUDE_PATTERNS = {
-    "*test*", "tests/*", "docs/*", "examples/*", "v1/*",
+    "venv/*", ".venv/*", "*test*", "tests/*", "docs/*", "examples/*", "v1/*",
     "dist/*", "build/*", "experimental/*", "deprecated/*",
     "legacy/*", ".git/*", ".github/*", ".next/*", ".vscode/*", "obj/*", "bin/*", "node_modules/*", "*.log"
 }

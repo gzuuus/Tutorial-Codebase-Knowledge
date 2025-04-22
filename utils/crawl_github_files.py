@@ -155,23 +155,6 @@ def crawl_github_files(
     files = {}
     skipped_files = []
     
-    def should_include_file(file_path: str, file_name: str) -> bool:
-        """Determine if a file should be included based on patterns"""
-        # If no include patterns are specified, include all files
-        if not include_patterns:
-            include_file = True
-        else:
-            # Check if file matches any include pattern
-            include_file = any(fnmatch.fnmatch(file_name, pattern) for pattern in include_patterns)
-        
-        # If exclude patterns are specified, check if file should be excluded
-        if exclude_patterns and include_file:
-            # Exclude if file matches any exclude pattern
-            exclude_file = any(fnmatch.fnmatch(file_path, pattern) for pattern in exclude_patterns)
-            return not exclude_file
-        
-        return include_file
-    
     def fetch_contents(path):
         """Fetch contents of the repository at a specific path and commit"""
         url = f"https://api.github.com/repos/{owner}/{repo}/contents/{path}"
