@@ -173,6 +173,9 @@ def crawl_github_files(
             if not token:
                 print(f"Error 404: Repository not found or is private.\n"
                       f"If this is a private repository, please provide a valid GitHub token via the 'token' argument or set the GITHUB_TOKEN environment variable.")
+            elif not path and ref == 'main':
+                print(f"Error 404: Repository not found. Check if the default branch is not 'main'\n"
+                      f"Try adding branch name to the request i.e. python main.py --repo https://github.com/username/repo/tree/master")
             else:
                 print(f"Error 404: Path '{path}' not found in repository or insufficient permissions with the provided token.\n"
                       f"Please verify the token has access to this repository and the path exists.")
