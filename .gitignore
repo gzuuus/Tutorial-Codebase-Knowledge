@@ -100,4 +100,10 @@ llm_cache.json
 
 # Output files
 output/
-docs/
+
+# uv manage
+pyproject.toml
+uv.lock
+
+docs/*.pdf
+docs/design-cn.md

@@ -12,7 +12,9 @@ logger = logging.getLogger("llm_logger")
 logger.setLevel(logging.INFO)
 logger.propagate = False  # Prevent propagation to root logger
 file_handler = logging.FileHandler(log_file)
-file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+file_handler.setFormatter(
+    logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+)
 logger.addHandler(file_handler)
 
 def call_llm(prompt: str, use_cache: bool = True) -> str:
@@ -59,10 +61,11 @@ def call_llm(prompt: str, use_cache: bool = True) -> str:
     if use_cache and response_text and not response_text.startswith("["):
         cache[prompt] = response_text
         try:
-            with open(cache_file, 'w') as f:
+            with open(cache_file, "w") as f:
                 json.dump(cache, f)
         except Exception as e:
             logger.error(f"Failed to save cache: {e}")
+
 
     return response_text
     
